@@ -42,8 +42,6 @@ void setup(void){
   pinMode(OrangePin,OUTPUT);            //Orange
   
   wifi_protocol_init();                 //Tuya-WiFi模块初始化
-
-//  mcu_set_wifi_mode(SMART_CONFIG);
   
   Serial.begin(19200);                  //tuya串口初始化 （由于8MHz晶振，实际波特率9600）
   MySerial.begin(19200);                //调试串口初始化 （由于8MHz晶振，实际波特率9600）
