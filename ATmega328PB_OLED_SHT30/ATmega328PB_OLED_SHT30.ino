@@ -3,6 +3,7 @@
 #include <ClosedCube_SHT31D.h>
 #include <SoftwareSerial.h>
 
+//SDK移植
 #include "wifi.h"
 #include "mcu_api.h"
 
@@ -20,7 +21,7 @@ U8G2_SSD1306_128X64_NONAME_2_HW_I2C u8g2(U8G2_R0,U8X8_PIN_NONE,19,18); //A5->19(
 ClosedCube_SHT31D sht30;
 SoftwareSerial MySerial(12, 11); //RX, TX--调试
 
-float temp = 11,humi = 20;    //温度，湿度
+float temp,humi;                 //温度，湿度
 
 //函数声明
 void SHT30ReadData(SHT31D result); 
@@ -63,7 +64,7 @@ void loop(void)
   wifi_uart_service();      //Wifi串口中断处理
   Uart_Receive();
 
-  delay(100);
+  delay(100); 
 }
 
 void SHT30ReadData(SHT31D result) {
